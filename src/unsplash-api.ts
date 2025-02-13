@@ -1,36 +1,20 @@
 import axios, { AxiosResponse } from "axios";
 
-interface Image {
+interface UnsplashPhoto {
   id: string;
-  created_at: string;
-  updated_at: string;
-  width: number;
-  height: number;
-  color: string;
-  description: string | null;
-  alt_description: string | null;
   urls: {
-    raw: string;
-    full: string;
-    regular: string;
     small: string;
-    thumb: string;
+    regular: string;
+    full: string;
   };
-  user: {
-    id: string;
-    username: string;
-    name: string;
-    portfolio_url: string | null;
-    profile_image: {
-      small: string;
-      medium: string;
-      large: string;
-    };
-  };
+  alt_description?: string;
+  likes: number;
+  created_at: string;
+  description?: string;
 }
 
 interface UnsplashResponse {
-  results: Image[];
+  results: UnsplashPhoto[];
   total: number;
   total_pages: number;
 }

@@ -42,7 +42,17 @@ function App() {
           setError(`Nothing was found for the word "${query}"`);
           return;
         }
-        setImages((prevImages) => [...prevImages, ...data.results]);
+
+        const newImages: Image[] = data.results.map((photo) => ({
+          id: photo.id,
+          urls: photo.urls,
+          alt_description: photo.alt_description,
+          likes: photo.likes,
+          created_at: photo.created_at,
+          description: photo.description,
+        }));
+
+        setImages((prevImages) => [...prevImages, ...newImages]);
         setTotalPages(data.total_pages);
       })
       .catch(() => {
