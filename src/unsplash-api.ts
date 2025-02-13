@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 
-interface Photo {
+interface Image {
   id: string;
   created_at: string;
   updated_at: string;
@@ -30,7 +30,7 @@ interface Photo {
 }
 
 interface UnsplashResponse {
-  results: Photo[];
+  results: Image[];
   total: number;
   total_pages: number;
 }
